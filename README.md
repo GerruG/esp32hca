@@ -7,6 +7,14 @@ An IoT project that uses an ESP32 and a PIR sensor to detect mailbox activity an
 - Sends notifications via a Flask API and Telegram bot.
 - Powered by ESP32 for wireless connectivity.
 
+## Requirements
+- ESP32
+- PIR sensor
+- PlatformIO (IDE)
+- Python 3.8+ (för Flask API)
+- Telegram Bot API token
+
+
 ## Installation
 1. Clone the repository:
    ```bash
