@@ -62,8 +62,72 @@ To run this project, you'll need:
 ### Telegram Bot Setup
 1. Create a bot using the [BotFather](https://core.telegram.org/bots#botfather) on Telegram.
 2. Note the bot token provided by BotFather.
-3. Edit the `mqtt_api.py` file and replace `YOUR_BOT_TOKEN` with your actual bot token.
+3. Edit the `mqtt_api.py` file and replace `your_bot_api_token` with your actual bot token.
 4. Start the Flask server, and test notifications.
+
+## Flask API Code
+Below is the Flask API code used in this project:
+
+```python
+import logging
+from flask import Flask, request, jsonify
+from datetime import datetime
+import requests
+
+# Create Flask app instance
+app = Flask(__name__)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("mqtt_api.log"),
+        logging.StreamHandler(),
+    ],
+)
+
+# Telegram Bot API Token and Chat ID
+TELEGRAM_API_TOKEN = "your_bot_api_token"
+TELEGRAM_CHAT_ID = "6454007879"
+
+def send_telegram_notification(message):
+    url = f"https://api.telegram.org/bot{TELEGRAM_API_TOKEN}/sendMessage"
+    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
+    response = requests.post(url, json=payload)
+    if response.status_code != 200:
+        app.logger.error(f"Failed to send notification: {response.text}")
+
+# Global state
+latest_motion_data = {"motion": "inactive", "timestamp": None}
+
+# Define routes
+@app.route('/api/motion', methods=['POST'])
+def receive_motion_data():
+    global latest_motion_data
+
+    data = request.json
+    if not data or "motion" not in data:
+        return jsonify({"error": "Invalid data"}), 400
+
+    new_state = "active" if data["motion"] else "inactive"
+
+    if new_state != latest_motion_data["motion"]:
+        latest_motion_data = {
+            "motion": new_state,
+            "timestamp": datetime.now().isoformat(),
+        }
+
+        if new_state == "active":
+            notification_message = f"Mailbox Activity Detected at {latest_motion_data['timestamp']}"
+            send_telegram_notification(notification_message)
+
+    return jsonify({"message": "Data received successfully"}), 200
+
+@app.route('/api/motion', methods=['GET'])
+def get_motion_data():
+    return jsonify(latest_motion_data)
+```
 
 ## Folder Structure
 - `src/`: Contains the ESP32 code.
