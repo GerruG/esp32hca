@@ -88,8 +88,8 @@ logging.basicConfig(
 )
 
 # Telegram Bot API Token and Chat ID
-TELEGRAM_API_TOKEN = "your_bot_api_token"
-TELEGRAM_CHAT_ID = "6454007879"
+TELEGRAM_API_TOKEN = "your_bot_api_token"  # Replace with your actual bot token
+TELEGRAM_CHAT_ID = "your_chat_id"  # Replace with your actual chat ID
 
 def send_telegram_notification(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_API_TOKEN}/sendMessage"
