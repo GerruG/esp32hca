@@ -151,8 +151,8 @@ Mailbox Activity Detected at 2025-01-09T21:20:40
 
 
 ## System Architecture
-![System Architecture Diagram](diagram.png)
-_Replace with the actual architecture diagram if available._
+![image](https://github.com/user-attachments/assets/52663cac-7ac2-4c83-b4e5-fb300c7c7c2e)
+
 
 ## Future Work
 - Implement TLS encryption for secure communication between ESP32 and the Flask server.
@@ -160,9 +160,3 @@ _Replace with the actual architecture diagram if available._
 - Develop a mobile app for managing notifications and configurations.
 - Integrate other sensors for additional functionality.
 
-
-## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
-
-## Support
-For any issues or questions, feel free to open an issue on GitHub or contact me via Telegram.
