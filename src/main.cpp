@@ -2,8 +2,8 @@
 #include <HTTPClient.h>
 
 // WiFi credentials
-const char* ssid = "hallonsylt";       // Replace with your WiFi SSID
-const char* password = "110b4l3p5";   // Replace with your WiFi password
+const char* ssid = "SSID";       // Replace with your WiFi SSID
+const char* password = "SSID PASSWORD";   // Replace with your WiFi password
 
 // REST API endpoint
 const char* api_url = "http://192.168.0.207:5000/api/motion"; // Replace with your Raspberry Pi's API URL
