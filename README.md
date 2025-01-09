@@ -147,7 +147,8 @@ Mailbox Activity Detected at 2025-01-09T21:20:40
 ```
 
 ### Screenshot
-_Add a screenshot of the Telegram notification here._
+![1000005356](https://github.com/user-attachments/assets/ccd9c8ce-0297-4aef-a736-2b2d96e992ab)
+
 
 ## System Architecture
 ![System Architecture Diagram](diagram.png)
@@ -159,8 +160,6 @@ _Replace with the actual architecture diagram if available._
 - Develop a mobile app for managing notifications and configurations.
 - Integrate other sensors for additional functionality.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
