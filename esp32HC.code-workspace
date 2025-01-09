@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../esp32HC"
+		},
+		{
+			"name": "esp32hca",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
